@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
             return;
         }
     req.flash('success', 'Seu usuário foi registrado com sucesso!')
-        return res.send(login.errors)
+    return res.redirect('/login')
     }catch(e){
         console.log(e);
         return res.render('404');
