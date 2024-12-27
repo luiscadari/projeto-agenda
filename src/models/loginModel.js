@@ -34,6 +34,29 @@ class Login {
       this.errors.push("A senha precisa ter entre 3 e 50 caracteres")
     }
   }
+  async login() {
+    this.valida();
+    if(this.errors.length > 0){
+      return;
+    }
+    try{
+      const user = await LoginModel.findOne({email: this.body.email});
+      if(!user){
+        this.errors.push("Conta não encontrada, crie sua conta!");
+        return;
+      }
+      const isPassword = bcrypt.compareSync(this.body.password, user.password);
+      if(!isPassword){
+        this.errors.push('Senha ou e-mail incorreto! Tente novamente.');
+        return;
+      }
+      this.user = user
+      return
+    }catch(e){
+      console.log(e);
+      return;
+    }
+  }
   async register() {
     console.log('Dados que chegaram: ', this.body)
     this.valida();
