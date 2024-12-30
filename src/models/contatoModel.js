@@ -71,10 +71,11 @@ Contato.prototype.update = async function (id) {
   });
 };
 
-Contato.prototype.delete = async function (id) {
+Contato.delete = async function (id) {
   if (typeof id != "string") return;
   try {
-    await ContatoModel.findByIdAndRemove(id);
+    const contato = await ContatoModel.findByIdAndRemove(id);
+    return contato;
   } catch (e) {
     console.log(e);
     return;
