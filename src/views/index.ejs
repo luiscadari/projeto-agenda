@@ -11,72 +11,13 @@
         <div class="row">
           <div class="responsive-table">
             <table class="table my-3">
-              <tr>
-                <td>Luís</td>
-                <td>Cadari</td>
-                <td>99 99999999</td>
-                <td>luiscadari@icloud.com</td>
-              </tr>
-              <tr>
-                <td>Maria</td>
-                <td>Santos</td>
-                <td>11 98765432</td>
-                <td>maria.santos@gmail.com</td>
-              </tr>
-              <tr>
-                <td>João</td>
-                <td>Silva</td>
-                <td>21 91234567</td>
-                <td>joao.silva@yahoo.com</td>
-              </tr>
-              <tr>
-                <td>Ana</td>
-                <td>Oliveira</td>
-                <td>31 99876543</td>
-                <td>ana.oliveira@hotmail.com</td>
-              </tr>
-              <tr>
-                <td>Pedro</td>
-                <td>Almeida</td>
-                <td>41 98761234</td>
-                <td>pedro.almeida@outlook.com</td>
-              </tr>
-              <tr>
-                <td>Carla</td>
-                <td>Ferreira</td>
-                <td>51 97654321</td>
-                <td>carla.ferreira@icloud.com</td>
-              </tr>
-              <tr>
-                <td>Lucas</td>
-                <td>Souza</td>
-                <td>61 91234567</td>
-                <td>lucas.souza@gmail.com</td>
-              </tr>
-              <tr>
-                <td>Juliana</td>
-                <td>Martins</td>
-                <td>71 92345678</td>
-                <td>juliana.martins@yahoo.com</td>
-              </tr>
-              <tr>
-                <td>Ricardo</td>
-                <td>Lima</td>
-                <td>81 93456789</td>
-                <td>ricardo.lima@outlook.com</td>
-              </tr>
-              <tr>
-                <td>Sofia</td>
-                <td>Barbosa</td>
-                <td>91 94567890</td>
-                <td>sofia.barbosa@hotmail.com</td>
-              </tr>
-              <tr>
-                <td>Felipe</td>
-                <td>Gomes</td>
-                <td>13 98765432</td>
-                <td>felipe.gomes@icloud.com</td>
-              </tr>
+              <% contatos.forEach((contato, index)=>{%>
+                <tr>
+                  <td><%= contato.name %></td>
+                  <td><%= contato.phone %></td>
+                  <td><%= contato.email %></td>
+                </tr>                
+              <% }) %>
             </table>
           </div>
         </div>

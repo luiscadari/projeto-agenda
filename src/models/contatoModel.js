@@ -71,4 +71,8 @@ Contato.prototype.update = async function (id) {
   });
 };
 
+Contato.fetchContacts = async function () {
+  return await ContatoModel.find({}).sort({ created: -1 });
+};
+
 module.exports = Contato;
