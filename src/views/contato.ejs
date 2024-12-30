@@ -1,0 +1,38 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-5">
+      <h1 class="text-center" >Contato</h1>
+      <p class="text-center lead">Preencha o formulário abaixo para criar um novo contato em sua agenda pessoal.</div>
+        <% include("includes/messages") %>
+        <div class="row">
+        </div>
+        <div class="col-lg">
+          <h4>Faça seu cadastro</h4>
+          <form action="/contato/register" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %> >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nome</label>
+              <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome do Contato">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email do contato">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Telefone</label>
+              <input name="phone" type="tel" class="form-control" id="exampleInputPassword1" placeholder="telefone">
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
