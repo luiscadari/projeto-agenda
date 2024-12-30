@@ -42,6 +42,12 @@ Contato.prototype.register = async function () {
   }
 };
 
+Contato.fetchContact = async function (id) {
+  if (typeof id !== "string") return;
+  const user = await ContatoModel.findById(id);
+  return user;
+};
+
 Contato.prototype.cleanUp = function () {
   for (const key in this.body) {
     if (typeof this.body[key] !== "string") {

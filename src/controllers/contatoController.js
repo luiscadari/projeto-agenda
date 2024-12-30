@@ -20,10 +20,20 @@ exports.register = async (req, res) => {
     }
     console.log("sucesso!");
     req.flash("success", "Contato Salvo com sucesso!");
-    req.session.save(() => res.redirect("/contato"));
+    req.session.save(() => res.redirect(`/contato/${contato.contato._id}`));
     return;
   } catch (e) {
     console.log(e);
     return res.render("404");
   }
+};
+
+exports.editIndex = async function (req, res) {
+  if (!req.params.id) return res.render("404");
+  const contato = await Contato.fetchContact(req.params.id);
+  if (!contato) return res.render("404");
+  console.log("contato: ", contato);
+  return res.render("contato", {
+    contato: contato,
+  });
 };
