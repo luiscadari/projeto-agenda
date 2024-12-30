@@ -57,3 +57,23 @@ exports.update = async function (req, res) {
     res.render("404");
   }
 };
+
+exports.delete = async function (req, res) {
+  if (!req.params.id) return;
+  try {
+    const contato = new Contato(req.body);
+    await contato.delete(req.params.id);
+    if (contato.errors.length > 0) {
+      req.flash("errors", contato.errors);
+      console.log("errors:", contato.errors);
+      req.session.save(() => res.redirect(`back`));
+      return;
+    }
+    req.flash("success", "Contato removido com sucesso!");
+    req.session.save(() => res.redirect(`back`));
+    return;
+  } catch (e) {
+    console.log(e);
+    res.render("404");
+  }
+};

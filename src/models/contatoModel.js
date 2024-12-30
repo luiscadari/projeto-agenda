@@ -71,6 +71,16 @@ Contato.prototype.update = async function (id) {
   });
 };
 
+Contato.prototype.delete = async function (id) {
+  if (typeof id != "string") return;
+  try {
+    await ContatoModel.findByIdAndRemove(id);
+  } catch (e) {
+    console.log(e);
+    return;
+  }
+};
+
 Contato.fetchContacts = async function () {
   return await ContatoModel.find({}).sort({ created: -1 });
 };
